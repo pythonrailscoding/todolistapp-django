@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center-column">
+    <div class="d-grid gap-2">
+<a href="{% url 'create' %}" class="btn btn-info">Create a New Task</a><hr>
+    </div>
+    {% for task in object_list %}
+    {% if task.complete == True %}
+    <div class="item-row">   
+     
+    <a href="{% url 'update' task.id %}" class="btn btn-sm btn-info">Update</a>  
+    <a href="{% url 'detail' task.id %}" class="btn btn-sm btn-success">Show</a>  
+    <a href="{% url 'delete' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+    <strike>{{ task.title }}</strike>
+    </div>
+    {% else %}
+    <div class="item-row">
+    
+    <a href="{% url 'update' task.id %} " class="btn btn-sm btn-info">Update</a>  
+    <a href="{% url 'detail' task.id %}" class="btn btn-sm btn-success">Show</a>  
+    <a href="{% url 'delete' task.id %}" class="btn btn-sm btn-danger">Delete</a>
+    {{ task.title }}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

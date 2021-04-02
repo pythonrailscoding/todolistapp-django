@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="center-column">
+    <div class="item-row">
+        <center>
+<b>Title:</b> {{ task }}<br>
+{% if task.description %}
+<b>Description:</b> {{ task.description }}<br>
+{% else %}
+<b>Description not provided!!</b><br>
+{% endif %}
+{% if task.date %}
+<b>Date:</b> {{ task.date }} <br>
+{% else %}
+<b>Any Specific Date is not Set!!</b><br>
+{% endif %}
+{% if task.complete == True %}
+<b>Status:</b> Completed!!
+{% else %}
+<b>Status:</b> Not Finished Yet!!
+{% endif %}
+<br><br>
+</center>
+</div>
+<div class="d-grid gap-2">
+<a href="{% url 'index' %}" class="btn btn-info">Go Back</a>
+</div>
+</div>
+{% endblock %}

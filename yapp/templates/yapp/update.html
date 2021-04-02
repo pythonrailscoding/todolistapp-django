@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="center-column">
+<form method="POST" action="">
+    {% csrf_token %}
+    <div class="item-row-updated">
+    <b>{{ form.title.label }}</b>
+    {{ form.title }}
+</div>
+<div class="item-row">
+    <b>{{ form.description.label }}</b><br>
+    {{ form.description }}<br>
+</div>
+<div class="item-row-updated">
+    <b>{{ form.date.label }}</b><i> (Date should be written in YYYY-MM-DD format)</i>
+    {{ form.date }}
+    <br>
+</div>
+<div class="item-row">
+    
+    <center><b>Toggle the checkbox to Check off items and Uncheck them!!</b></center> {{ form.complete }}
+    
+    
+    
+    
+   
+</div><br><hr>
+
+<input type="submit" value="Update" class="btn btn-warning">
+</form>
+<div class="d-grid gap-2">
+<a href="{% url 'index' %}" class="btn btn-success">Go Back</a>
+</div>
+</div>
+{% endblock %}

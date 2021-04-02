@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="center-column">
+<form method="POST" action="">
+    {% csrf_token %}
+<div class="item-row-updated">
+    <b>{{ form.title.label }}</b>
+    {{ form.title }}
+</div>
+    <div class="item-row">
+    <b>{{ form.description.label }}</b><br>
+    {{ form.description }}
+</div>
+<div class="item-row-updated">
+<b>{{ form.date.label }}</b><i> (Date should be written in YYYY-MM-DD format)</i>
+    {{ form.date }}
+</div>
+<hr><br>
+    <input type="submit" value="Create Task" class='btn btn-warning'>
+</form>
+
+<div class="d-grid gap-2">
+<a href="{% url 'index' %}" class="btn btn-success">Go Back</a>
+</div>
+</div>
+{% endblock %}
